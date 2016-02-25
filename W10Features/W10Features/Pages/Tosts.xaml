@@ -22,9 +22,9 @@
                 </Style>
             </StackPanel.Resources>
             <TextBlock>Toast Notifications</TextBlock>
-            <Button Content="Local Toast via Template" Click="btnLocalToast01_Click"></Button>
-            <Button Content="Local Toast via XML" Click="btnLocalToast02_Click"></Button>
-            <Button Content="Local Toast com Action" Click="btnLocalActionToast01_Click"></Button>
+            <Button Content="Local Toast by Template" Click="btnLocalToastTemplate_Click"></Button>
+            <Button Content="Local Toast by XML" Click="btnLocalToastXml_Click"></Button>
+            <Button Content="Local Toast with Action" Click="btnLocalActionToast_Click"></Button>
         </StackPanel>
     </Grid>
 </Page>

@@ -13,21 +13,21 @@ namespace W10Features.Pages
             this.InitializeComponent();
         }
 
-        private void btnLocalToast01_Click(object sender, RoutedEventArgs e)
+        private void btnLocalToastTemplate_Click(object sender, RoutedEventArgs e)
         {
-            ToastNotification toast = new ToastNotification(ToastNotificationHelper.getToastTemplate());
+            ToastNotification toast = new ToastNotification(ToastNotificationHelper.GetToastTemplate());
             ToastNotificationManager.CreateToastNotifier().Show(toast);
         }
 
-        private void btnLocalToast02_Click(object sender, RoutedEventArgs e)
+        private void btnLocalToastXml_Click(object sender, RoutedEventArgs e)
         {
-            ToastNotification toast = new ToastNotification(ToastNotificationHelper.getXmlToast());
+            ToastNotification toast = new ToastNotification(ToastNotificationHelper.GetXmlToast());
             ToastNotificationManager.CreateToastNotifier().Show(toast);
         }
 
-        private void btnLocalActionToast01_Click(object sender, RoutedEventArgs e)
+        private void btnLocalActionToast_Click(object sender, RoutedEventArgs e)
         {
-            ToastNotification toast = new ToastNotification(ToastNotificationHelper.getXmlToastWithAction());
+            ToastNotification toast = new ToastNotification(ToastNotificationHelper.GetXmlToastWithAction());
             ToastNotificationManager.CreateToastNotifier().Show(toast);
         }
     }

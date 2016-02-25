@@ -19,7 +19,7 @@ namespace W10Features.Models
             Time = "8:15 AM, Saturday";
             Message= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.";
             Message2 = " At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.";
-            Branding = "Company";
+            Branding = "nameAndLogo";
             AppName = "W10Features";
         }
 

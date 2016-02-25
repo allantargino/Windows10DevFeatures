@@ -8,7 +8,7 @@ namespace W10Features.Helpers
     {
         //Ref: https://msdn.microsoft.com/en-us/library/windows/apps/windows.ui.notifications.toasttemplatetype
 
-        public static XmlDocument getToastTemplate()
+        public static XmlDocument GetToastTemplate()
         {
             Toast t = new Toast();
 
@@ -28,7 +28,7 @@ namespace W10Features.Helpers
             return toastXML;
         }
 
-        public static XmlDocument getXmlToast()
+        public static XmlDocument GetXmlToast()
         {
             Toast t = new Toast();
             string title = t.Title;
@@ -53,7 +53,7 @@ namespace W10Features.Helpers
             return toastXML;
         }
 
-        public static XmlDocument getXmlToastWithAction()
+        public static XmlDocument GetXmlToastWithAction()
         {
             Toast t = new Toast();
             string title = t.Title;

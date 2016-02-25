@@ -12,8 +12,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using W10Features.Models;
 using W10Features.Helpers;
-
+using Windows.UI.Notifications;
 
 namespace W10Features.Pages
 {
@@ -25,13 +26,18 @@ namespace W10Features.Pages
             this.InitializeComponent();
         }
 
-        private void btnAtualizarNum(object sender, RoutedEventArgs e)
+        private void btnUpdateBadge(object sender, RoutedEventArgs e)
         {
             int num;
             if (int.TryParse(tbxNum.Text, out num))
             {
-                LiveTileHelper.updateCount(num);
+                LiveTileHelper.UpdateCount(num);
             }
+        }
+
+        private void btnUpdatePrimaryTile(object sender, RoutedEventArgs e)
+        {
+            LiveTileHelper.UpdateTiles();
         }
     }
 }
