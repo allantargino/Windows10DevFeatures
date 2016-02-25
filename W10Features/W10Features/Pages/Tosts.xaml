@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="W10Features.Pages.Tosts"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:W10Features"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel VerticalAlignment="center">
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="0,10,0,10" />
+                    <Setter Property="HorizontalAlignment" Value="center" />
+                    <Setter Property="Width" Value="200" />
+                </Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Margin" Value="0,00,0,50" />
+                    <Setter Property="HorizontalAlignment" Value="center" />
+                    <Setter Property="FontSize" Value="30" />
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock>Toast Notifications</TextBlock>
+            <Button Content="Local Toast via Template" Click="btnLocalToast01_Click"></Button>
+            <Button Content="Local Toast via XML" Click="btnLocalToast02_Click"></Button>
+            <Button Content="Local Toast com Action" Click="btnLocalActionToast01_Click"></Button>
+        </StackPanel>
+    </Grid>
+</Page>

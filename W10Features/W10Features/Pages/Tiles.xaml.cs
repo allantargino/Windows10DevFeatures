@@ -12,19 +12,26 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using W10Features.Helpers;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
-namespace W10Features
+namespace W10Features.Pages
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class MainPage : Page
+
+    public sealed partial class Tiles : Page
     {
-        public MainPage()
+        public Tiles()
         {
             this.InitializeComponent();
+        }
+
+        private void btnAtualizarNum(object sender, RoutedEventArgs e)
+        {
+            int num;
+            if (int.TryParse(tbxNum.Text, out num))
+            {
+                LiveTileHelper.updateCount(num);
+            }
         }
     }
 }

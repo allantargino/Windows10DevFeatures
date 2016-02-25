@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
@@ -14,6 +13,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.IO;
+using Windows.UI.Core;
 
 namespace W10Features
 {
@@ -39,14 +40,6 @@ namespace W10Features
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
-
-#if DEBUG
-            if (System.Diagnostics.Debugger.IsAttached)
-            {
-                this.DebugSettings.EnableFrameRateCounter = true;
-            }
-#endif
-
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
@@ -76,6 +69,27 @@ namespace W10Features
             }
             // Ensure the current window is active
             Window.Current.Activate();
+            SystemNavigationManager.GetForCurrentView().BackRequested += App_BackRequested;
+            rootFrame.Navigated += RootFrame_Navigated;
+        }
+
+        private void App_BackRequested(object sender, BackRequestedEventArgs e)
+        {
+            if (!e.Handled)
+            {
+                Frame rootFrame = Window.Current.Content as Frame;
+                if (rootFrame.CanGoBack)
+                {
+                    rootFrame.GoBack();
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void RootFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = rootFrame.CanGoBack ? AppViewBackButtonVisibility.Visible : AppViewBackButtonVisibility.Collapsed;
         }
 
         /// <summary>
