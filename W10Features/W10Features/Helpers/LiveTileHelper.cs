@@ -16,5 +16,7 @@ namespace W10Features
             BadgeUpdateManager.CreateBadgeUpdaterForApplication().Update(badge);
         }
 
+
+
     }
 }
