@@ -16,8 +16,9 @@
                     <Setter Property="Width" Value="200" />
                 </Style>
             </StackPanel.Resources>
-            <Button Content="Ir para Toasts Page" Click="btnIrToastsPage_Click"></Button>
-            <Button Content="Ir para Tiles Page" Click="btnIrTilesPage_Click"></Button>
+            <Button Content="Navigate to Toasts Page" Click="btnToastsPage_Click"></Button>
+            <Button Content="Navigate to Tiles Page" Click="btnTilesPage_Click"></Button>
+            <Button Content="Navigate to Cortana Page" Click="btnCortanaPage_Click"></Button>
         </StackPanel>
     </Grid>
 </Page>

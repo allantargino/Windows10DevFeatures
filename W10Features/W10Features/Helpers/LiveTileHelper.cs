@@ -19,7 +19,7 @@ namespace W10Features
 
         public static void UpdateTiles()
         {
-            var xmlDoc = LiveTileHelper.CreateTiles(new Tile());
+            var xmlDoc = CreateTiles(new Tile());
             var updater = TileUpdateManager.CreateTileUpdaterForApplication();
             var notification = new TileNotification(xmlDoc);
             updater.Update(notification);
