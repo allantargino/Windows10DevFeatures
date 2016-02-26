@@ -1,8 +1,8 @@
 ﻿<Application
-    x:Class="W10Features.App"
+    x:Class="W10FeaturesLib.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:W10Features"
+    xmlns:local="using:W10FeaturesLib"
     RequestedTheme="Dark">
 
 </Application>

@@ -16,7 +16,7 @@ using Windows.UI.Xaml.Navigation;
 using System.IO;
 using Windows.UI.Core;
 
-namespace W10Features
+namespace W10FeaturesLib
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.

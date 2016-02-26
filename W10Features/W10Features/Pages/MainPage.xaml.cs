@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using W10Features.Pages;
+using W10FeaturesLib.Pages;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -14,7 +14,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace W10Features
+namespace W10FeaturesLib
 {
     public sealed partial class MainPage : Page
     {
@@ -23,16 +23,15 @@ namespace W10Features
             this.InitializeComponent();
         }
 
-        private void btnIrToastsPage_Click(object sender, RoutedEventArgs e)
+        private void btnToastsPage_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(Tosts));
+
         }
 
-
-        private void btnIrTilesPage_Click(object sender, RoutedEventArgs e)
+        private void btnTilesPage_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(Tiles));
-
         }
 
         private void btnCortanaPage_Click(object sender, RoutedEventArgs e)

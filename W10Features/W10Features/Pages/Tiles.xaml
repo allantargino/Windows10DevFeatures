@@ -1,8 +1,8 @@
 ﻿<Page
-    x:Class="W10FeaturesLib.Pages.Tosts"
+    x:Class="W10FeaturesLib.Pages.Tiles"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:W10FeaturesLib"
+    xmlns:local="using:W10FeaturesLib.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -15,19 +15,23 @@
                     <Setter Property="HorizontalAlignment" Value="center" />
                     <Setter Property="Width" Value="200" />
                 </Style>
-                <Style TargetType="ComboBox">
-                    <Setter Property="HorizontalAlignment" Value="center" />
-                    <Setter Property="Width" Value="200" />
-                </Style>
                 <Style TargetType="TextBlock">
-                    <Setter Property="Margin" Value="0,00,0,50" />
+                    <Setter Property="Margin" Value="0,0,0,50" />
                     <Setter Property="HorizontalAlignment" Value="center" />
                     <Setter Property="FontSize" Value="30" />
                 </Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="Width" Value="30" />
+                    <Setter Property="Height" Value="30" />
+                    <Setter Property="Margin" Value="10,0,10,0" />
+                </Style>
             </StackPanel.Resources>
-            <TextBlock>Toast Notifications</TextBlock>
-            <ComboBox Name="cmbTemplates"></ComboBox>
-            <Button Content="Local Toast" Click="btnLocalToast_Click"></Button>
+            <TextBlock>Live Tiles</TextBlock>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBox Name="tbxNum"></TextBox>
+                <Button Click="btnUpdateBadge">Update Number Badge</Button>
+            </StackPanel>
+            <Button Click="btnUpdatePrimaryTile" >Update Primary Tile</Button>
         </StackPanel>
     </Grid>
 </Page>
