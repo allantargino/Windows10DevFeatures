@@ -1,2 +1,5 @@
-# Windows10DevFeatures
-This repository exposes some of the development features for Windows 10, for instance Cortana and Live Tiles.
+# Windows 10 Dev Features
+This repository exposes the following dev features for Windows 10:
+* Live Tiles
+* Toast Notifications
+* Cortana
