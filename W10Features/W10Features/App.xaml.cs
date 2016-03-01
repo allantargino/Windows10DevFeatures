@@ -15,6 +15,10 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.IO;
 using Windows.UI.Core;
+using Windows.ApplicationModel.VoiceCommands;
+using Windows.Storage;
+using System.Diagnostics;
+
 
 namespace W10FeaturesLib
 {
@@ -38,25 +42,22 @@ namespace W10FeaturesLib
         /// will be used such as when the application is launched to open a specific file.
         /// </summary>
         /// <param name="e">Details about the launch request and process.</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
+            //Install Cortana command definitions:
+            var storageFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///VoiceCommands.xml"));
+            await VoiceCommandDefinitionManager.InstallCommandDefinitionsFromStorageFileAsync(storageFile);
+
             Frame rootFrame = Window.Current.Content as Frame;
 
-            // Do not repeat app initialization when the Window already has content,
-            // just ensure that the window is active
             if (rootFrame == null)
             {
-                // Create a Frame to act as the navigation context and navigate to the first page
                 rootFrame = new Frame();
-
                 rootFrame.NavigationFailed += OnNavigationFailed;
-
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
                     //TODO: Load state from previously suspended application
                 }
-
-                // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
             }
 
@@ -115,5 +116,49 @@ namespace W10FeaturesLib
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
+
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            if (rootFrame == null)
+            {
+                rootFrame = new Frame();
+                rootFrame.NavigationFailed += OnNavigationFailed;
+                Window.Current.Content = rootFrame;
+            }
+
+            switch (args.Kind)
+            {
+                case ActivationKind.VoiceCommand:
+                    HandleVoiceCommand(args, rootFrame);
+                    break;
+                default:
+                    break;
+            }
+
+            Window.Current.Activate();
+
+            base.OnActivated(args);
+        }
+
+        private void HandleVoiceCommand(IActivatedEventArgs args, Frame frame)
+        {
+            var commandArgs = args as VoiceCommandActivatedEventArgs;
+            var speechRecognitionResult = commandArgs.Result;
+            var command = speechRecognitionResult.Text;
+            var voiceCommandName = speechRecognitionResult.RulePath[0];
+            var textSpoken = speechRecognitionResult.Text;
+            Debug.WriteLine("Command: " + command);
+            Debug.WriteLine("Text spoken: " + textSpoken);
+            switch (voiceCommandName)
+            {
+                case "LaunchApp":
+                    frame.Navigate(typeof(MainPage));
+                    break;
+                default:
+                    break;
+            }
+        }
+
     }
 }

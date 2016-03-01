@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.2">
+  <CommandSet xml:lang="en-us" Name="W10FeaturesCmd_en-us">
+    <AppName>Windows 10 Features</AppName>
+    <Example>Launch</Example>
+    <Command Name="LaunchApp">
+      <Example>Launch</Example>
+      <ListenFor>launch</ListenFor>
+      <Feedback>Opening your speech recognition app</Feedback>
+      <Navigate />
+    </Command>
+  </CommandSet>
+</VoiceCommands>
